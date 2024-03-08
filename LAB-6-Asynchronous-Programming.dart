@@ -61,7 +61,7 @@ void main() async {
   print('Random Quote: $quote');
 
   // Exercise 2
-  var fileUrl = 'https://example.com/file.txt'; // Replace with your file URL
+  var fileUrl ='https://raw.githubusercontent.com/exampleuser/example-repo/main/sample.txt';
   await downloadFile(fileUrl);
 
   // Exercise 3
