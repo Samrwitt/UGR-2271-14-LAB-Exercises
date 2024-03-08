@@ -35,8 +35,8 @@ Future<List<String>> loadDataFromDatabase() async {
 
 // Exercise 4
 Future<void> fetchWeatherData() async {
-  final apiKey = 'your_api_key'; // Replace with your API key
-  final city = 'example_city'; // Replace with your desired city
+  final apiKey = 'aa37302d4063446490e135520240803'; 
+  final city = 'Addis'; 
   final url = 'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey';
 
   try {
