@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 
 // Exercise 1
 Future<String> fetchRandomQuote() async {
@@ -12,10 +11,13 @@ Future<String> fetchRandomQuote() async {
 // Exercise 2
 Future<void> downloadFile(String url) async {
   try {
-    var response = await http.get(Uri.parse(url));
+    var httpClient = HttpClient();
+    var request = await httpClient.getUrl(Uri.parse(url));
+    var response = await request.close();
+
     if (response.statusCode == 200) {
       File file = File('downloaded_file.txt');
-      await file.writeAsString(response.body);
+      await file.writeAsBytes(await response.fold<List<int>>([], (acc, chunk) => acc..addAll(chunk)));
       print('File downloaded successfully.');
     } else {
       print('Failed to download file. Status code: ${response.statusCode}');
@@ -40,9 +42,12 @@ Future<void> fetchWeatherData() async {
   final url = 'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey';
 
   try {
-    var response = await http.get(Uri.parse(url));
+    var httpClient = HttpClient();
+    var request = await httpClient.getUrl(Uri.parse(url));
+    var response = await request.close();
+
     if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
+      var data = jsonDecode(await response.transform(utf8.decoder).join());
       var temperature = data['main']['temp'];
       var weatherCondition = data['weather'][0]['main'];
       print('Temperature: $temperature°C');
