@@ -21,18 +21,25 @@ class Too extends StatelessWidget {
                 icon: Icon(Icons.help),
               ),
               RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'IJ',
-              style: TextStyle(fontSize: 20, color: Colors.red), // Red and unbold
-            ),
-            TextSpan(
-              text: 'Tracker',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Bold and black
-            ),
-          ],
-        ),
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'IJ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red, // Red and unbold
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Tracker',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Bold and black
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Row(
                 children: [
@@ -71,35 +78,42 @@ class Too extends StatelessWidget {
                     radius: 20,
                     backgroundImage: AssetImage('assets/ducksun.jpg'), // Replace with your profile picture
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'John Doe',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                     
+                      SizedBox(height: 4),
                       Text(
                         '+1234567890',
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
                       ),
-                      
                     ],
-                  ),  IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.directions_car),
-                      ),
+                  ),
+                  Spacer(), // Adds space to push the following widgets to the right
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.directions_car),
+                  ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Log out', textAlign: TextAlign.right,
+                      'Log out',
                       style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Container(
                 height: 50,
                 color: Colors.blue,
@@ -107,15 +121,16 @@ class Too extends StatelessWidget {
                 child: Center(
                   child: Text(
                     'Online | Battery 90%',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 30, width: 40),
+              SizedBox(height: 10),
               Table(
-                border: TableBorder.all(color: Colors.grey, width: 1.0),
-                
-                defaultColumnWidth: FlexColumnWidth(1.0),
+                defaultColumnWidth: FlexColumnWidth(0.3), // Adjust the width of the cells
                 children: [
                   TableRow(
                     children: [
@@ -179,8 +194,16 @@ class Too extends StatelessWidget {
               icon: Icon(icon),
               onPressed: () {},
             ),
-            Text(text1, style: TextStyle(fontSize: 10)),
-            Text(text2, style: TextStyle(fontSize: 10)),
+            SizedBox(height: 8),
+            Text(
+              text1,
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black54), // Adjusted font size and color
+            ),
+            SizedBox(height: 4),
+            Text(
+              text2,
+              style: TextStyle(fontSize: 10, color: Colors.grey), // Adjusted font size and color
+            ),
           ],
         ),
       ),
