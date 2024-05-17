@@ -5,3 +5,8 @@ fun sumOfEvenNumbers(): Int {
     }
     return sum
 }
+
+fun main() {
+    val sum = sumOfEvenNumbers()
+    println("Sum of even numbers from 1 to 50: $sum")
+}
