@@ -1,13 +1,24 @@
-fun isPrime(num: Int): Boolean {
-    if (num <= 1) {
-        return false
+fun isPalindrome(number: Int): Boolean {
+    var originalNumber = number
+    var reversedNumber = 0
+    var remainder: Int
+
+    // Reverse the number
+    while (originalNumber != 0) {
+        remainder = originalNumber % 10
+        reversedNumber = reversedNumber * 10 + remainder
+        originalNumber /= 10
     }
-    var divisor = 2
-    while (divisor * divisor <= num) {
-        if (num % divisor == 0) {
-            return false
-        }
-        divisor++
+
+    // Check if the reversed number is equal to the original number
+    return number == reversedNumber
+}
+
+fun main() {
+    val number = 12321
+    if (isPalindrome(number)) {
+        println("$number is a palindrome.")
+    } else {
+        println("$number is not a palindrome.")
     }
-    return true
 }
